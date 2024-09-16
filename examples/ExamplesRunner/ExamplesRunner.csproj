@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Silk.NET.Input" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Windowing" Version="2.18.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Istok.Rendering\Istok.Rendering.csproj"/>
+    <ProjectReference Include="..\..\src\Istok\Istok.csproj"/>
+    <ProjectReference Include="..\Examples\Examples.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\Assets\**\*.*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

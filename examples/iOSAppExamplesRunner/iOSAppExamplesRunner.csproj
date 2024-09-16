@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Silk.NET.Input.Sdl" Version="2.18.0" />
+    <PackageReference Include="Silk.NET.MoltenVK.Native" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.SDL" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Windowing.Sdl" Version="2.18.0"/>
+    <PackageReference Include="Ultz.Native.SDL" Version="2.30.1"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Istok.Rendering\Istok.Rendering.csproj"/>
+    <ProjectReference Include="..\..\src\Istok\Istok.csproj"/>
+    <ProjectReference Include="..\Examples\Examples.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\Assets\**\*.*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

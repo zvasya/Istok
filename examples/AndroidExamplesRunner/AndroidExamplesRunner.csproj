@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationId>com.companyname.AndroidExamplesRunner</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Silk.NET.Input.Sdl" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.SDL" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Windowing.Sdl" Version="2.18.0"/>
+    <PackageReference Include="Ultz.Native.SDL" Version="2.30.1"/>
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Istok.Rendering\Istok.Rendering.csproj"/>
+    <ProjectReference Include="..\..\src\Istok\Istok.csproj"/>
+    <ProjectReference Include="..\Examples\Examples.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidAsset Include="..\Assets\**\*.*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+</Project>

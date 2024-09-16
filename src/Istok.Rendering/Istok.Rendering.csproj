@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!--        <Nullable>enable</Nullable>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Silk.NET.Vulkan" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.MVK" Version="2.18.0"/>
+    <PackageReference Include="Silk.NET.Windowing.Common" Version="2.18.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Silk.NET.Vulkan.Extensions\Silk.NET.Vulkan.Extensions.csproj" />
+  </ItemGroup>
+</Project>
