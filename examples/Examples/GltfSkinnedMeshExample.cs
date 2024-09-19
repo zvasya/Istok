@@ -713,7 +713,7 @@ public class GltfSkinnedMeshExample
 
             for (int i = 0; i < _bonesMatrices.Length; i++)
             {
-                Matrix4x4 m = inverseRootMatrix * _joints[i].WorldMatrix4X4;
+                Matrix4x4 m = _joints[i].WorldMatrix4X4 * inverseRootMatrix;
                 _bonesMatrices[i] = _inverseBindMatrices[i] * m;
             }
 
