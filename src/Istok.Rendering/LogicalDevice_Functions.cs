@@ -166,7 +166,7 @@ public partial class LogicalDevice
         VK.DestroySemaphore(_device, semaphore, pAllocator);
     }
 
-    public unsafe void DestroyShaderModule(ShaderModule shaderModule, AllocationCallbacks* pAllocator)
+    public unsafe void DestroyShaderModule(Silk.NET.Vulkan.ShaderModule shaderModule, AllocationCallbacks* pAllocator)
     {
         VK.DestroyShaderModule(_device, shaderModule, pAllocator);
     }
@@ -530,7 +530,7 @@ public partial class LogicalDevice
         VK.DestroySemaphore(_device, semaphore, in pAllocator);
     }
 
-    public void DestroyShaderModule(ShaderModule shaderModule, in AllocationCallbacks pAllocator)
+    public void DestroyShaderModule(Silk.NET.Vulkan.ShaderModule shaderModule, in AllocationCallbacks pAllocator)
     {
         VK.DestroyShaderModule(_device, shaderModule, in pAllocator);
     }
@@ -1629,42 +1629,42 @@ public partial class LogicalDevice
         return VK.CreateSemaphore(_device, in pCreateInfo, in pAllocator, out pSemaphore);
     }
 
-    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, AllocationCallbacks* pAllocator, ShaderModule* pShaderModule)
+    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, AllocationCallbacks* pAllocator, Silk.NET.Vulkan.ShaderModule* pShaderModule)
     {
         return VK.CreateShaderModule(_device, pCreateInfo, pAllocator, pShaderModule);
     }
 
-    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, AllocationCallbacks* pAllocator, out ShaderModule pShaderModule)
+    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, AllocationCallbacks* pAllocator, out Silk.NET.Vulkan.ShaderModule pShaderModule)
     {
         return VK.CreateShaderModule(_device, pCreateInfo, pAllocator, out pShaderModule);
     }
 
-    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, in AllocationCallbacks pAllocator, ShaderModule* pShaderModule)
+    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, in AllocationCallbacks pAllocator, Silk.NET.Vulkan.ShaderModule* pShaderModule)
     {
         return VK.CreateShaderModule(_device, pCreateInfo, in pAllocator, pShaderModule);
     }
 
-    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, in AllocationCallbacks pAllocator, out ShaderModule pShaderModule)
+    public unsafe Result CreateShaderModule(ShaderModuleCreateInfo* pCreateInfo, in AllocationCallbacks pAllocator, out Silk.NET.Vulkan.ShaderModule pShaderModule)
     {
         return VK.CreateShaderModule(_device, pCreateInfo, in pAllocator, out pShaderModule);
     }
 
-    public unsafe Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, AllocationCallbacks* pAllocator, ShaderModule* pShaderModule)
+    public unsafe Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, AllocationCallbacks* pAllocator, Silk.NET.Vulkan.ShaderModule* pShaderModule)
     {
         return VK.CreateShaderModule(_device, in pCreateInfo, pAllocator, pShaderModule);
     }
 
-    public unsafe Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, AllocationCallbacks* pAllocator, out ShaderModule pShaderModule)
+    public unsafe Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, AllocationCallbacks* pAllocator, out Silk.NET.Vulkan.ShaderModule pShaderModule)
     {
         return VK.CreateShaderModule(_device, in pCreateInfo, pAllocator, out pShaderModule);
     }
 
-    public unsafe Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, in AllocationCallbacks pAllocator, ShaderModule* pShaderModule)
+    public unsafe Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, in AllocationCallbacks pAllocator, Silk.NET.Vulkan.ShaderModule* pShaderModule)
     {
         return VK.CreateShaderModule(_device, in pCreateInfo, in pAllocator, pShaderModule);
     }
 
-    public Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, in AllocationCallbacks pAllocator, out ShaderModule pShaderModule)
+    public Result CreateShaderModule(in ShaderModuleCreateInfo pCreateInfo, in AllocationCallbacks pAllocator, out Silk.NET.Vulkan.ShaderModule pShaderModule)
     {
         return VK.CreateShaderModule(_device, in pCreateInfo, in pAllocator, out pShaderModule);
     }

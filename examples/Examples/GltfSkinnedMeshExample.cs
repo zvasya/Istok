@@ -22,6 +22,7 @@ using Image = Istok.Rendering.Image;
 using ImageView = Istok.Rendering.ImageView;
 using Node = Istok.Core.Node;
 using Pipeline = Istok.Rendering.Pipeline;
+using ShaderModule = Istok.Rendering.ShaderModule;
 
 namespace Examples;
 
@@ -30,9 +31,9 @@ public class GltfSkinnedMeshExample
     readonly IView _window;
     readonly Graphics _graphics;
     readonly CommandList _commandList;
-    readonly Shader _vertexShader;
-    readonly Shader _vertexShaderSkinned;
-    readonly Shader _fragmentShader;
+    readonly ShaderModule _vertexShader;
+    readonly ShaderModule _vertexShaderSkinned;
+    readonly ShaderModule _fragmentShader;
     readonly Pipeline _pipeline;
     readonly Pipeline _skinnedPipeline;
 
@@ -569,11 +570,11 @@ public class GltfSkinnedMeshExample
     }
 
 
-    Shader LoadShader(Graphics graphics, string name, ShaderStageFlags shaderStage)
+    ShaderModule LoadShader(Graphics graphics, string name, ShaderStageFlags shaderStage)
     {
         byte[] shaderBytes = _getBytes(name);
         ShaderDescription shaderDescription = new ShaderDescription(shaderStage, shaderBytes, "main");
-        return graphics.CreateShader(in shaderDescription);
+        return graphics.CreateShaderModule(in shaderDescription);
     }
 
     unsafe void Draw(double deltaTime)

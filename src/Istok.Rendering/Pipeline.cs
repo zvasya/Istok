@@ -132,14 +132,14 @@ public unsafe class Pipeline : IDisposable
             };
         }
 
-        Shader[] shaders = description.ShaderSet.Shaders;
+        ShaderModule[] shaders = description.ShaderSet.Shaders;
         PipelineShaderStageCreateInfo* stages = stackalloc PipelineShaderStageCreateInfo[shaders.Length];
         for (int i = 0; i < shaders.Length; i++)
         {
             stages[i] = new PipelineShaderStageCreateInfo
             {
                 SType = StructureType.PipelineShaderStageCreateInfo,
-                Module = shaders[i].ShaderModule,
+                Module = shaders[i].DeviceShaderModule,
                 Stage = shaders[i].Stage,
                 PName = MarshaledStringRegistry.Get(shaders[i].EntryPoint),
                 PSpecializationInfo = &specializationInfo,
@@ -242,12 +242,12 @@ public unsafe class Pipeline : IDisposable
             };
         }
 
-        Shader shader = description.ComputeShader;
+        ShaderModule shaderModule = description.ComputeShaderModule;
         PipelineShaderStageCreateInfo stageCI = new PipelineShaderStageCreateInfo
         {
             SType = StructureType.PipelineShaderStageCreateInfo,
-            Module = shader.ShaderModule,
-            Stage = shader.Stage,
+            Module = shaderModule.DeviceShaderModule,
+            Stage = shaderModule.Stage,
             PName = MarshaledStringRegistry.Get("main"),
             PSpecializationInfo = &specializationInfo,
         };

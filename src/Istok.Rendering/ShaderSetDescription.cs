@@ -1,6 +1,6 @@
 ﻿namespace Istok.Rendering;
 
-public readonly struct ShaderSetDescription(VertexLayoutDescription[] vertexLayouts, Shader[] shaders, SpecializationConstant[] specializations = null) : IEquatable<ShaderSetDescription>
+public readonly struct ShaderSetDescription(VertexLayoutDescription[] vertexLayouts, ShaderModule[] shaders, SpecializationConstant[] specializations = null) : IEquatable<ShaderSetDescription>
 {
     /// <summary>
     /// An array of <see cref="VertexLayoutDescription"/> describing the input layout of a <see cref="Istok.Rendering.Buffer"/>
@@ -8,9 +8,9 @@ public readonly struct ShaderSetDescription(VertexLayoutDescription[] vertexLayo
     public readonly VertexLayoutDescription[] VertexLayouts = vertexLayouts;
 
     /// <summary>
-    /// An array of <see cref="Shader"/>, one for each shader stage in the <see cref="Pipeline"/>
+    /// An array of <see cref="ShaderModule"/>, one for each shader stage in the <see cref="Pipeline"/>
     /// </summary>
-    public readonly Shader[] Shaders = shaders;
+    public readonly ShaderModule[] Shaders = shaders;
 
     /// <summary>
     /// Array of <see cref="SpecializationConstant"/> specifying data for a specialization map at the time the <see cref="Pipeline"/> is created

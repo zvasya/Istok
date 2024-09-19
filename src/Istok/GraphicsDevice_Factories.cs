@@ -8,6 +8,7 @@ using ImageView = Istok.Rendering.ImageView;
 using Pipeline = Istok.Rendering.Pipeline;
 using RenderPass = Istok.Rendering.RenderPass;
 using Sampler = Istok.Rendering.Sampler;
+using ShaderModule = Istok.Rendering.ShaderModule;
 
 namespace Istok;
 
@@ -65,8 +66,8 @@ public partial class Graphics
         return new Sampler(LogicalDevice, in description);
     }
 
-    public Shader CreateShader(in ShaderDescription description)
+    public ShaderModule CreateShaderModule(in ShaderDescription description)
     {
-        return Shader.Create(LogicalDevice, in description);
+        return ShaderModule.Create(LogicalDevice, in description);
     }
 }

@@ -6,15 +6,15 @@ public static class GraphicsUtils
 {
     static readonly byte[] SpirVHeader = [3, 2, 35, 7];
 
-    public static Shader[] CreateFromSpirV2(Graphics graphics, ShaderDescription vertexShaderDescription, ShaderDescription fragmentShaderDescription)
+    public static ShaderModule[] CreateFromSpirV2(Graphics graphics, ShaderDescription vertexShaderDescription, ShaderDescription fragmentShaderDescription)
     {
         EnsureSpirVHeader(vertexShaderDescription.ShaderBytes);
         EnsureSpirVHeader(fragmentShaderDescription.ShaderBytes);
 
         return
         [
-            graphics.CreateShader(in vertexShaderDescription),
-            graphics.CreateShader(in fragmentShaderDescription),
+            graphics.CreateShaderModule(in vertexShaderDescription),
+            graphics.CreateShaderModule(in fragmentShaderDescription),
         ];
 
         static void EnsureSpirVHeader(byte[] bytes)

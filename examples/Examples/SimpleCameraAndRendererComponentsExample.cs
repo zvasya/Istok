@@ -17,6 +17,7 @@ using DescriptorSetLayout = Istok.Rendering.DescriptorSetLayout;
 using Image = Istok.Rendering.Image;
 using ImageView = Istok.Rendering.ImageView;
 using Pipeline = Istok.Rendering.Pipeline;
+using ShaderModule = Istok.Rendering.ShaderModule;
 
 namespace Examples;
 
@@ -25,8 +26,8 @@ public class SimpleCameraAndRendererComponentsExample
     readonly IView _window;
     readonly Graphics _graphics;
     readonly CommandList _commandList;
-    readonly Shader _vertexShader;
-    readonly Shader _fragmentShader;
+    readonly ShaderModule _vertexShader;
+    readonly ShaderModule _fragmentShader;
     readonly Pipeline _pipeline;
 
     readonly Mesh _mesh;
@@ -180,11 +181,11 @@ public class SimpleCameraAndRendererComponentsExample
     }
 
 
-    Shader LoadShader(Graphics graphics, string name, ShaderStageFlags shaderStage)
+    ShaderModule LoadShader(Graphics graphics, string name, ShaderStageFlags shaderStage)
     {
         byte[] shaderBytes = _getBytes(name);
         ShaderDescription shaderDescription = new ShaderDescription(shaderStage, shaderBytes, "main");
-        return graphics.CreateShader(in shaderDescription);
+        return graphics.CreateShaderModule(in shaderDescription);
     }
 
     unsafe void Draw(double deltaTime)

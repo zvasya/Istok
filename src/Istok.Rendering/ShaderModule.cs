@@ -5,20 +5,20 @@ namespace Istok.Rendering;
 /// <summary>
 /// Specifying parameters for creating a pipeline shader stage
 /// </summary>
-public unsafe class Shader : IDisposable
+public unsafe class ShaderModule : IDisposable
 {
     readonly LogicalDevice _logicalDevice;
     string _name;
 
-    Shader(LogicalDevice logicalDevice, ShaderStageFlags stage, string entryPoint, ShaderModule shaderModule)
+    ShaderModule(LogicalDevice logicalDevice, ShaderStageFlags stage, string entryPoint, Silk.NET.Vulkan.ShaderModule shaderModule)
     {
         _logicalDevice = logicalDevice;
         Stage = stage;
         EntryPoint = entryPoint;
-        ShaderModule = shaderModule;
+        DeviceShaderModule = shaderModule;
     }
 
-    public ShaderModule ShaderModule { get; }
+    public Silk.NET.Vulkan.ShaderModule DeviceShaderModule { get; }
 
 
     /// <summary>
@@ -37,7 +37,7 @@ public unsafe class Shader : IDisposable
         set
         {
             _name = value;
-            _logicalDevice.SetObjectName(ObjectType.ShaderModule, ShaderModule.Handle, value);
+            _logicalDevice.SetObjectName(ObjectType.ShaderModule, DeviceShaderModule.Handle, value);
         }
     }
 
@@ -48,13 +48,13 @@ public unsafe class Shader : IDisposable
         if (!IsDisposed)
         {
             IsDisposed = true;
-            _logicalDevice.DestroyShaderModule(ShaderModule, null);
+            _logicalDevice.DestroyShaderModule(DeviceShaderModule, null);
         }
     }
 
-    public static Shader Create(LogicalDevice logicalDevice, in ShaderDescription description)
+    public static ShaderModule Create(LogicalDevice logicalDevice, in ShaderDescription description)
     {
-        ShaderModule shaderModule;
+        Silk.NET.Vulkan.ShaderModule shaderModule;
 
         fixed (byte* codePtr = description.ShaderBytes)
         {
@@ -68,6 +68,6 @@ public unsafe class Shader : IDisposable
             Helpers.CheckErrors(result);
         }
 
-        return new Shader(logicalDevice, description.Stage, description.EntryPoint, shaderModule);
+        return new ShaderModule(logicalDevice, description.Stage, description.EntryPoint, shaderModule);
     }
 }
